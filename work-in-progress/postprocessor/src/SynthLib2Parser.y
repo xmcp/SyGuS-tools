@@ -22,7 +22,7 @@
     {
         cerr << "Parse error: Last token read was: " << yytext
              << " at line: " << yylinenum << ", column: " 
-             << yycolnum - strlen(yytext) << endl;
+             << yycolnum - long(strlen(yytext)) << endl;
         cerr.flush();
         exit(1);
     }

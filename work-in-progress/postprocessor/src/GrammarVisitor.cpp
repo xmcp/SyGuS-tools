@@ -215,7 +215,7 @@ namespace SynthLib2Parser {
 
   string bin_to_hex(const string bv) {
     stringstream res;
-    for (int i = 0; i < bv.length(); i += 4)
+    for (u32 i = 0; i < bv.length(); i += 4)
       res << hex << std::stoi(bv.substr(i, 4), nullptr, 2);
     return res.str();
   }
