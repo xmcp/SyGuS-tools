@@ -24,13 +24,13 @@ int clean(const char* sourceFileName, const char*  targetFileName)
       return -1;
     }
 
-  char line[2048];
+  char line[65536];
   char* lineStart;
   char* p;
   bool foundOpenparen = false;
   bool lineChanged;
 
-  while (fgets(line, 2048, fin))
+  while (fgets(line, 65535, fin))
     {
       if (strstr(line, "-----"))
         break;
