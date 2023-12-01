@@ -50,6 +50,7 @@ STRINGCONST             "\""({SYMBOLCC}|{WS}|{DIGIT}|","|"("|")")*"\""
 "inv-constraint"        { yycolnum += strlen(yytext); return TK_INV_CONSTRAINT; }
 "("                     { yycolnum += strlen(yytext); return TK_LPAREN; }
 ")"                     { yycolnum += strlen(yytext); return TK_RPAREN; }
+"_"                     { yycolnum += strlen(yytext); return TK_UNDERSCORE; }
 "BitVec"                { yycolnum += strlen(yytext); return TK_BV; }
 "Array"                 { yycolnum += strlen(yytext); return TK_ARRAY; }
 "Int"                   { yycolnum += strlen(yytext); return TK_INT; }

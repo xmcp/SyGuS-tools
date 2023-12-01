@@ -62,7 +62,7 @@
 
 %token TK_DEFINE_SORT TK_DEFINE_FUN TK_DECLARE_FUN TK_SET_OPTIONS
 %token TK_CHECK_SYNTH TK_SYNTH_FUN TK_SYNTH_INV TK_DECLARE_VAR TK_DECLARE_PRIMED_VAR
-%token TK_LPAREN TK_RPAREN TK_SET_LOGIC TK_BV
+%token TK_LPAREN TK_RPAREN TK_SET_LOGIC TK_UNDERSCORE TK_BV
 %token TK_INT TK_BOOL TK_ENUM TK_STRING TK_CONSTRAINT TK_INV_CONSTRAINT
 %token TK_CONSTANT TK_VARIABLE TK_LOCAL_VARIABLE TK_INPUT_VARIABLE 
 %token TK_ERROR TK_DOUBLECOLON
@@ -192,15 +192,15 @@ SortDefCmd : TK_LPAREN TK_DEFINE_SORT Symbol SortExpr TK_RPAREN
                delete $3;
            }
 
-SortExpr : TK_LPAREN TK_BV IntConst TK_RPAREN
+SortExpr : TK_LPAREN TK_UNDERSCORE TK_BV IntConst TK_RPAREN
          {
-             if (boost::lexical_cast<u32>(*$3) == 0) {
+             if (boost::lexical_cast<u32>(*$4) == 0) {
                  throw SynthLib2ParserException("Zero-length bitvectors not supported.\n" +
                                                 GetCurrentLocation().ToString());
              }
              $$ = new BVSortExpr(GetCurrentLocation(),
-                                 boost::lexical_cast<u32>(*$3));
-             delete $3;
+                                 boost::lexical_cast<u32>(*$4));
+             delete $4;
          }
          | TK_INT
          {

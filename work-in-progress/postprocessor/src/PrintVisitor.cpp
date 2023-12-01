@@ -370,10 +370,7 @@ namespace SynthLib2Parser {
 
     void PrintVisitor::VisitBVSortExpr(const BVSortExpr* Sort)
     {
-	if (Compile) // output needs to by SyGuS format
-	        Out << "(BitVec " << Sort->GetSize() << ")";
-	else        // output needs to be SMT format
-        	Out << "(_ BitVec " << Sort->GetSize() << ")";
+        Out << "(_ BitVec " << Sort->GetSize() << ")";
     }
 
     void PrintVisitor::VisitNamedSortExpr(const NamedSortExpr* Sort)
