@@ -102,7 +102,9 @@ namespace SynthLib2Parser {
 	LogicName = "SLIA";
       }
       else {	
-      	Logic = "(set-logic AUFLIA)";
+        // xmcp: z3 complains "logic does not support nonlinear arithmetic" for AUFLIA
+      	//Logic = "(set-logic AUFLIA)";
+      	Logic = "(set-logic LIA)";
       	LogicName = "LIA";
       }
    }
