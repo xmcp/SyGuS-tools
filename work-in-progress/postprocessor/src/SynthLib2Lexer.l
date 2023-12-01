@@ -12,9 +12,10 @@
 %}
 
 %option noyywrap
+%option nodefault
 
 %x                      linecomment
-WS                      [ \t\f]
+WS                      [ \t\f\r]
 LETTER                  [a-zA-Z_]
 DIGIT                   [0-9]
 HEXDIGIT                {DIGIT}|[a-f]|[A-F]

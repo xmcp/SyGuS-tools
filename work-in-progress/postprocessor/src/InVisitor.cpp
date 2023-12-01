@@ -203,7 +203,7 @@ namespace SynthLib2Parser {
   void InVisitor::VisitFunTerm(const FunTerm* TheTerm)
   {
     for(auto const& Arg : TheTerm->GetArgs()) {
-      Out << " ";
+      //Out << " ";
       // In CMPTRK_PBE a constraint should be 
       // an equality with LHS one of the function to be synthesized	
       // e.g.:   (constraint (= (f "abcde" "ab" "xx") "xxcde"))	
